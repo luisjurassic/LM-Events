@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{225137C7-EAE0-4DC2-AD59-66AED3586E2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LM_Events</RootNamespace>
+    <AssemblyName>LM Events</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>LMEvents_32x32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>LM_Events.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAcessLayer\CaixaDAL.cs" />
+    <Compile Include="DataAcessLayer\Conexao\DbUtils.cs" />
+    <Compile Include="DataAcessLayer\DescontosDAL.cs" />
+    <Compile Include="DataAcessLayer\EventosDAL.cs" />
+    <Compile Include="DataAcessLayer\InscricoesDAL.cs" />
+    <Compile Include="DataAcessLayer\ReservaInscricaoDAL.cs" />
+    <Compile Include="DataAcessLayer\ReservaStandsDAL.cs" />
+    <Compile Include="DataAcessLayer\StandDAL.cs" />
+    <Compile Include="DataObjectBase\Dados\DBCaixa.cs" />
+    <Compile Include="DataObjectBase\Dados\DBCidade.cs" />
+    <Compile Include="DataObjectBase\Dados\DBDescontos.cs" />
+    <Compile Include="DataObjectBase\Dados\DBEvento.cs" />
+    <Compile Include="DataObjectBase\Dados\DBInscricoes.cs" />
+    <Compile Include="DataObjectBase\Dados\DBPermissao.cs" />
+    <Compile Include="DataObjectBase\Dados\DBRamoAtividade.cs" />
+    <Compile Include="DataAcessLayer\EnderecoDAL.cs" />
+    <Compile Include="DataAcessLayer\UsuarioDAL.cs" />
+    <Compile Include="DataAcessLayer\PessoaFisicaDAL.cs" />
+    <Compile Include="DataAcessLayer\PessoaJuridicaDAL.cs" />
+    <Compile Include="DataObjectBase\Dados\DBEstado.cs" />
+    <Compile Include="DataObjectBase\Dados\DBReservaInscricao.cs" />
+    <Compile Include="DataObjectBase\Dados\DBStands.cs" />
+    <Compile Include="DataObjectBase\Dados\DBUsuario.cs" />
+    <Compile Include="DataObjectBase\Dados\DBPessoaFisica.cs" />
+    <Compile Include="DataObjectBase\Dados\DBPessoaJuridica.cs" />
+    <Compile Include="DataObjectBase\Dados\DBTipoEvento.cs" />
+    <Compile Include="DataObjectBase\Dados\DBTipoPagamento.cs" />
+    <Compile Include="DataAcessLayer\Parametros.cs" />
+    <Compile Include="DataObjectBase\Dados\DBReservaStands.cs" />
+    <Compile Include="PresentationLayer\FormAdministracaoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAdministracaoUsuario.Designer.cs">
+      <DependentUpon>FormAdministracaoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAdministrarDescontos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAdministrarDescontos.Designer.cs">
+      <DependentUpon>FormAdministrarDescontos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAtualizarCadastroPessoaFisicaAtualizarCadastroPessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAtualizarCadastroPessoaFisicaAtualizarCadastroPessoaFisica.Designer.cs">
+      <DependentUpon>FormAtualizarCadastroPessoaFisicaAtualizarCadastroPessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAcessLayer\ListasDAL.cs" />
+    <Compile Include="DataObjectBase\Dados\DBEndereco.cs" />
+    <Compile Include="DataObjectBase\Dados\DBEstadoCivil.cs" />
+    <Compile Include="DataObjectBase\Dados\DBTipoCadastro.cs" />
+    <Compile Include="PresentationLayer\FormAtualizarCadastroPessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAtualizarCadastroPessoaJuridica.Designer.cs">
+      <DependentUpon>FormAtualizarCadastroPessoaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAtualizarEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAtualizarEventos.Designer.cs">
+      <DependentUpon>FormAtualizarEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormEventosExcluidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormEventosExcluidos.Designer.cs">
+      <DependentUpon>FormEventosExcluidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirReserva.Designer.cs">
+      <DependentUpon>FormExcluirReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormInscricaoReservada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormInscricaoReservada.Designer.cs">
+      <DependentUpon>FormInscricaoReservada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormInscricoesExcluidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormInscricoesExcluidos.Designer.cs">
+      <DependentUpon>FormInscricoesExcluidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCalendarEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCalendarEventos.Designer.cs">
+      <DependentUpon>FormCalendarEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirCadastro.Designer.cs">
+      <DependentUpon>FormExcluirCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastroPessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastroPessoaJuridica.Designer.cs">
+      <DependentUpon>FormCadastroPessoaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirEvento.Designer.cs">
+      <DependentUpon>FormExcluirEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirInscricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormExcluirInscricao.Designer.cs">
+      <DependentUpon>FormExcluirInscricao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastrosExcluidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastrosExcluidos.Designer.cs">
+      <DependentUpon>FormCadastrosExcluidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormFecharCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormFecharCaixa.Designer.cs">
+      <DependentUpon>FormFecharCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastroPessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormCadastroPessoaFisica.Designer.cs">
+      <DependentUpon>FormCadastroPessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoEvento.Designer.cs">
+      <DependentUpon>FormNovoEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoStand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoStand.Designer.cs">
+      <DependentUpon>FormNovoStand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovoUsuario.Designer.cs">
+      <DependentUpon>FormNovoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovaInscricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormNovaInscricao.Designer.cs">
+      <DependentUpon>FormNovaInscricao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormPagamento.Designer.cs">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormPaginaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormPaginaInicial.Designer.cs">
+      <DependentUpon>FormPaginaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarEvento.Designer.cs">
+      <DependentUpon>FormProcurarEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarPessoaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarPessoaFisica.Designer.cs">
+      <DependentUpon>FormProcurarPessoaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TextBoxLM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarUsuario.Designer.cs">
+      <DependentUpon>FormProcurarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormReservaStand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormReservaStand.Designer.cs">
+      <DependentUpon>FormReservaStand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormSobreUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormSobreUsuario.Designer.cs">
+      <DependentUpon>FormSobreUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormStandReservado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormStandReservado.Designer.cs">
+      <DependentUpon>FormStandReservado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAdministracaoStands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormAdministracaoStands.Designer.cs">
+      <DependentUpon>FormAdministracaoStands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="PresentationLayer\FormProcurarPessoaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormProcurarPessoaJuridica.Designer.cs">
+      <DependentUpon>FormProcurarPessoaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FormTelaSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormTelaSplash.Designer.cs">
+      <DependentUpon>FormTelaSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCleaner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PresentationLayer\FormSobreLMEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FormSobreLMEvents.Designer.cs">
+      <DependentUpon>FormSobreLMEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validator\ListaDeErros.cs" />
+    <Compile Include="Validator\ValidaAtualizarDesconto.cs" />
+    <Compile Include="Validator\ValidaCNPJ.cs" />
+    <Compile Include="Validator\ValidaCPF.cs" />
+    <Compile Include="Validator\ValidaData.cs" />
+    <Compile Include="Validator\ValidaAtualizarEndereco.cs" />
+    <Compile Include="Validator\ValidaEndereco.cs" />
+    <Compile Include="Validator\ValidaAtualizarPessoaFisica.cs" />
+    <Compile Include="Validator\ValidaPessoaFisica.cs" />
+    <Compile Include="Validator\ValidaAtualizarPessoaJuridica.cs" />
+    <Compile Include="Validator\ValidaPessoaJuridica.cs" />
+    <Compile Include="Validator\ValidatorDesconto.cs" />
+    <Compile Include="Validator\ValidaAtualizarEvento.cs" />
+    <Compile Include="Validator\ValidatorEvento.cs" />
+    <Compile Include="Validator\ValidaUsuario.cs" />
+    <Compile Include="ViewModel\DadosPagamento.cs" />
+    <Compile Include="ViewModel\DadosReserva.cs" />
+    <EmbeddedResource Include="PresentationLayer\FormAdministracaoUsuario.resx">
+      <DependentUpon>FormAdministracaoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormAdministrarDescontos.resx">
+      <DependentUpon>FormAdministrarDescontos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormAtualizarCadastroPessoaFisicaAtualizarCadastroPessoaFisica.resx">
+      <DependentUpon>FormAtualizarCadastroPessoaFisicaAtualizarCadastroPessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormAtualizarCadastroPessoaJuridica.resx">
+      <DependentUpon>FormAtualizarCadastroPessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormAtualizarEventos.resx">
+      <DependentUpon>FormAtualizarEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormEventosExcluidos.resx">
+      <DependentUpon>FormEventosExcluidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormExcluirReserva.resx">
+      <DependentUpon>FormExcluirReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormInscricaoReservada.resx">
+      <DependentUpon>FormInscricaoReservada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormInscricoesExcluidos.resx">
+      <DependentUpon>FormInscricoesExcluidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormCalendarEventos.resx">
+      <DependentUpon>FormCalendarEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormExcluirCadastro.resx">
+      <DependentUpon>FormExcluirCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormCadastroPessoaJuridica.resx">
+      <DependentUpon>FormCadastroPessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormExcluirEvento.resx">
+      <DependentUpon>FormExcluirEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormExcluirInscricao.resx">
+      <DependentUpon>FormExcluirInscricao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormCadastrosExcluidos.resx">
+      <DependentUpon>FormCadastrosExcluidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormFecharCaixa.resx">
+      <DependentUpon>FormFecharCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormCadastroPessoaFisica.resx">
+      <DependentUpon>FormCadastroPessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormNovoEvento.resx">
+      <DependentUpon>FormNovoEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormNovoStand.resx">
+      <DependentUpon>FormNovoStand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormNovoUsuario.resx">
+      <DependentUpon>FormNovoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormNovaInscricao.resx">
+      <DependentUpon>FormNovaInscricao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormPagamento.resx">
+      <DependentUpon>FormPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormPaginaInicial.resx">
+      <DependentUpon>FormPaginaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormProcurarEvento.resx">
+      <DependentUpon>FormProcurarEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormProcurarPessoaFisica.resx">
+      <DependentUpon>FormProcurarPessoaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormProcurarPessoaJuridica.resx">
+      <DependentUpon>FormProcurarPessoaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormProcurarUsuario.resx">
+      <DependentUpon>FormProcurarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormReservaStand.resx">
+      <DependentUpon>FormReservaStand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormSobreUsuario.resx">
+      <DependentUpon>FormSobreUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormStandReservado.resx">
+      <DependentUpon>FormStandReservado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormAdministracaoStands.resx">
+      <DependentUpon>FormAdministracaoStands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormTelaSplash.resx">
+      <DependentUpon>FormTelaSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FormSobreLMEvents.resx">
+      <DependentUpon>FormSobreLMEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram2.cd" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataObjectBase\dbo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataObjectBase\dbo_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>dbo.mdf</DependentUpon>
+    </Content>
+    <Content Include="GUI\Image\Users\daiane.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GUI\Image\Users\jurassic.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GUI\Image\Users\lmevents.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GUI\Image\Users\moises.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LMEvents_32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
